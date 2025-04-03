@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GhostMessage</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>GhostMessage</h1>
+    <p>Messages that never were</p>
+  </header>
+
+  <main>
+    <section class="chat-editor">
+      <h2>Chat Editor</h2>
+
+      <div class="iphone-frame">
+        <div class="notch-container">
+          <div class="notch">
+            <div class="speaker-bar"></div>
+            <div class="camera-dot"></div>
+          </div>
+        </div>
+        <div class="status-bar">
+          <div class="status-bar-left">
+            <span class="carrier-text">5G</span>
+            <input type="text" class="time-display" value="12:00" />
+          </div>
+          <div class="status-bar-right">
+            <div class="signal-bars">
+              <i class="fas fa-signal primary-signal"></i>
+              <i class="fas fa-signal secondary-signal" style="display: none;"></i>
+            </div>
+            <i class="fas fa-wifi"></i>
+            <i class="fas fa-battery-full"></i>
+          </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div class="nav-bar">
+          <div class="nav-bar-left">
+            <a href="#" class="back-button">
+              <i class="fas fa-chevron-left"></i>
+            </a>
+          </div>
+          <div class="contact-info">
+            <div class="contact-photo">
+              <i class="fas fa-user-circle"></i>
+            </div>
+            <span class="contact-name">Matt</span>
+          </div>
+          <div class="nav-bar-right"></div>
+        </div>
+
+        <!-- Chat Area -->
+        <div class="chat-area" id="chatArea">
+          <div class="chat-header">
+            <span class="chat-header-text">iMessage</span>
+            <span class="chat-header-text">Today 9:41 AM</span>
+          </div>
+        </div>
+
+        <!-- Message Input Area -->
+        <div class="message-input-area">
+          <button class="input-button">
+            <i class="fas fa-camera"></i>
+          </button>
+          <div class="message-input-wrapper">
+            <div class="message-input">
+              <span class="input-placeholder">iMessage</span>
+            </div>
+            <button class="send-button">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Home Indicator -->
+        <div class="home-indicator"></div>
+      </div>
+    </section>
+
+    <section class="customization">
+      <h2>Customization</h2>
+
+      <div class="settings-group">
+        <h3>Parts</h3>
+        <div class="setting toggle-group">
+          <label class="toggle-label">
+            <span>Hide Header</span>
+            <div class="toggle-switch">
+              <input type="checkbox" id="hideHeader">
+              <span class="toggle-slider"></span>
+            </div>
+          </label>
+          <label class="toggle-label">
+            <span>Hide Footer</span>
+            <div class="toggle-switch">
+              <input type="checkbox" id="hideFooter">
+              <span class="toggle-slider"></span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="settings-group">
+        <h3>Network</h3>
+        <div class="setting network-group">
+          <select id="networkType" class="dark-input">
+            <option value="5G">5G</option>
+            <option value="4G">4G</option>
+            <option value="3G">3G</option>
+            <option value="LTE">LTE</option>
+          </select>
+          <label class="toggle-label">
+            <span>Dual Sim</span>
+            <div class="toggle-switch">
+              <input type="checkbox" id="dualSim">
+              <span class="toggle-slider"></span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="settings-group">
+        <h3>Message Settings</h3>
+        <div class="setting">
+          <label class="profile-label">Profile Picture</label>
+          <div class="profile-input-group">
+            <button type="button" class="profile-upload-button">
+              <i class="fas fa-camera"></i>
+              Change Photo
+            </button>
+            <input type="file" id="profilePicInput" accept="image/*" style="display: none;">
+          </div>
+        </div>
+        <div class="setting">
+          <label>Receiver's Name</label>
+          <input type="text" value="Matt" class="dark-input" id="senderInput">
+        </div>
+        <div class="setting">
+          <label class="toggle-label">
+            <span>Send as Receiver</span>
+            <div class="toggle-switch">
+              <input type="checkbox" id="sendAsReceiver">
+              <span class="toggle-slider"></span>
+            </div>
+          </label>
+        </div>
+        <div class="setting">
+          <label>Message Text</label>
+          <textarea class="dark-input" rows="3" id="messageInput" placeholder="Type your message..."></textarea>
+          <button class="send-message-button">
+            <i class="fas fa-paper-plane"></i>
+            Send Message
+          </button>
+        </div>
+      </div>
+
+      <div class="settings-group">
+        <h3>Status Bar Settings</h3>
+        <div class="setting">
+          <label>Time</label>
+          <input type="text" value="9:41" class="dark-input" id="timeInput">
+        </div>
+        <div class="setting">
+          <label>Carrier</label>
+          <input type="text" value="AT&T" class="dark-input" id="carrierInput">
+        </div>
+      </div>
+
+      <div class="settings-group">
+        <h3>Export Options</h3>
+        <button class="export-button png">
+          <i class="fas fa-image"></i>
+          Export as PNG
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with <i class="fas fa-heart"></i> by <a href="https://github.com/yourusername" target="_blank">Your Name</a>
+    </p>
+    <p>Version 1.0.0 | <a href="#" id="clearChat">Clear Chat</a> | <a href="#" id="saveChat">Save Chat</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: var(--ios-black);
+}
+
+.dark-mode .iphone-frame {
+  background: var(--ios-black);
+  box-shadow: 0 0 0 14px var(--ios-black), 0 0 0 15px #1a1a1a,
+    0 0 0 16px var(--ios-black);
+}
+
+.dark-mode .status-bar,
+.dark-mode .nav-bar {
+  background: var(--ios-black);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .chat-area {
+  background: var(--ios-black);
+}
+
+.dark-mode .message.received {
+  background: var(--ios-dark-gray);
+  color: var(--ios-white);
+}
+
+.dark-mode .message.sent {
+  background: var(--ios-blue);
+  color: var(--ios-white);
+}
+
+.dark-mode .message-input-area {
+  background: var(--ios-black);
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .message-input {
+  background: var(--ios-dark-gray);
+  color: var(--ios-white);
+}
+
+.dark-mode .message-input::placeholder {
+  color: var(--ios-light-text);
+}
+
+.dark-mode .message-preview {
+  background: var(--ios-black);
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .message-preview-content {
+  background: var(--ios-dark-gray);
+  color: var(--ios-white);
+}
+
+.dark-mode .timestamp {
+  color: var(--ios-light-text);
+}
+
+.dark-mode .send-button {
+  background: var(--ios-blue);
+  color: var(--ios-white);
+}
+
+.dark-mode .send-button:disabled {
+  opacity: 0.5;
+}
+
+.dark-mode .message.editing {
+  outline-color: var(--ios-blue);
+}
+
+.dark-mode .message.drag-over {
+  border-color: var(--ios-blue);
+}
+
+/* iOS-style Dark Mode Transitions */
+.dark-mode * {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* iOS-style Dark Mode Selection */
+.dark-mode ::selection {
+  background: var(--ios-blue);
+  color: var(--ios-white);
+}
+
+/* iOS-style Dark Mode Scrollbar */
+.dark-mode .chat-area {
+  scrollbar-color: transparent transparent;
+}
+
+/* iOS-style Dark Mode Focus */
+.dark-mode .message-input:focus {
+  box-shadow: 0 0 0 1px var(--ios-blue);
+}
+
+/* iOS-style Dark Mode Button Press */
+.dark-mode .send-button:active {
+  transform: scale(0.98);
+}
+
+/* iOS-style Dark Mode Notch */
+.dark-mode .notch {
+  background: var(--ios-black);
+}
+
+/* iOS-style Dark Mode Home Indicator */
+.dark-mode .home-indicator {
+  background: var(--ios-white);
+  opacity: 0.5;
+}
